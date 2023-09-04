@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import src.main.Livro;
@@ -30,9 +31,9 @@ public class SistemaTest {
     public void testEmprestarLivro() {
         Livro livro = new Livro("Livro do Bruno", "Bruno", false);
 
-        livro.EmprestarLivro(); // faz a checagem para ver se o item não esta emprestado
+        livro.emprestarLivro(); // faz a checagem para ver se o item não esta emprestado
 
-        assertTrue(livro.getEmprestado());
+        assertTrue("livro deve ter sido emprestado (emprestado = true)", livro.getEmprestado());
 
     }
 
@@ -40,7 +41,7 @@ public class SistemaTest {
     public void testRetornarLivro() {
         Livro livro = new Livro("Livro do Bruno", "Bruno", true);
 
-        livro.RetornarLivro(); // faz a checagem para ver se o item esta emprestado
+        livro.retornarLivro(); // faz a checagem para ver se o item esta emprestado
 
         assertFalse("livro deve ter sido retornado (emprestado = false)", livro.getEmprestado());
 
