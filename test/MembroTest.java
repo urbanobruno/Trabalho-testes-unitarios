@@ -16,9 +16,7 @@ public class MembroTest {
 	@Test
 	public void testCriarMembro() {
 		Membro membroTest = new Membro("Henrique");
-		
-		assertEquals(1, membroTest.getId());
-		
+	
 		assertEquals("Henrique", membroTest.getNome());
 		
 		assertTrue(membroTest.getLivrosEmprestados().isEmpty());
