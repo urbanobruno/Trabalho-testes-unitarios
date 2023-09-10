@@ -19,4 +19,32 @@ public class BibliotecaTest {
         assertEquals("Pedro", biblioteca.retornaAutorArrayList());
     }
 
+    @Test
+    public void testEmprestarLivro() {
+        Livro livro = new Livro("Livro do Pedro", "Pedro", false);
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.registrarLivro(livro);
+        
+        assertFalse(livro.getEmprestado()); 
+
+        biblioteca.emprestarLivro(livro.getId(), 1); 
+
+        assertTrue(livro.getEmprestado());
+    }
+
+
+    @Test
+    public void testRetornarLivro() {
+        Livro livro = new Livro("Livro do Pedro", "Pedro", false);
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.registrarLivro(livro);
+        
+        assertFalse(livro.getEmprestado()); 
+        biblioteca.emprestarLivro(livro.getId(), 1);
+        assertTrue(livro.getEmprestado()); 
+        biblioteca.retornarLivro(livro.getId(), 1); 
+        assertFalse(livro.getEmprestado()); 
+    }
 }
+
+

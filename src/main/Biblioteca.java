@@ -16,11 +16,34 @@ public class Biblioteca {
         return this.livros.get(0).getAutor();
     }
 
-    public void emprestarLivro(int livroId, int membroId){
+    public void emprestarLivro(int livroId, int membroId) {
+        Livro livro = encontrarLivroPorId(livroId);
 
+        if (livro != null) {
+            if (!livro.getEmprestado()) {
+                livro.emprestarLivro();
+            }
+        }
     }
 
-    public void retornarLivro(int livroId, int membroId){
+    public void retornarLivro(int livroId, int membroId) {
+        Livro livro = encontrarLivroPorId(livroId);
 
+        if (livro != null) {
+            if (livro.getEmprestado()) {
+                livro.retornarLivro();
+            }
+        }
     }
+
+
+   private Livro encontrarLivroPorId(int livroId) {
+        for (Livro livro : livros) {
+            if (livro.getId() == livroId) {
+                return livro;
+            }
+        }
+        return null;
+    }
+
 }
