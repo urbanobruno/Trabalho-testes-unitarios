@@ -25,8 +25,16 @@ public class Membro {
 	public ArrayList<Livro> getLivrosEmprestados() {
 		return livrosEmprestados;
 	}
+
+	public ArrayList<Livro> pegaLivroEmprestado(Livro livroEmprestado) {
+		livrosEmprestados.add(livroEmprestado);
+		return this.livrosEmprestados;
+	}
 	
-	
+	public ArrayList<Livro> devolveLivroEmprestado(int codigoLivro){
+		livrosEmprestados.removeIf((livro) -> livro.getId() == codigoLivro);
+		return livrosEmprestados;
+	}
 	
 	
 	
